@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="/javascript/index.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,101 +13,153 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Todos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Todo MAX</title>
   </head>
   <body>
-    <div class="container">
-      <div class="login">
-        <div class="login_img">
-          <img src="/image/login/bg.png" alt="bg" />
+    <!-- Menu task -->
+    <div class="menu_popup">
+      <div class="menu_task">
+        <div class="menu_temp inbox">
+          <div class="inboxs">
+            <i class="fa-solid fa-inbox"></i> <span>Inbox</span>
+          </div>
         </div>
-        <div class="login_temp">
-          <h1>Todos</h1>
-          <div class="social_auth">
-            <div class="google">
-              <i class="fa-brands fa-google"></i>
-              <p>Login with Google</p>
-            </div>
-            <div class="facebook">
-              <i class="fa-brands fa-facebook"></i>
-              <p>Login with Facebook</p>
+        <div class="menu_temp todays">
+          <div class="today">
+            <i class="fa-solid fa-calendar-week"></i> <span>Today</span>
+          </div>
+        </div>
+        <div class="menu_temp filter_labels">
+          <i class="fa-solid fa-filter"></i> <span>Filter & labels</span>
+        </div>
+        <div class="line"></div>
+        <div class="menu_temp settigs">
+          <i class="fa-solid fa-gear"></i> <span>Settings</span>
+        </div>
+        <div class="menu_temp theme">
+          <i class="fa-solid fa-palette"></i> <span>Theme</span>
+        </div>
+        <div class="menu_temp about">
+          <i class="fa-solid fa-info"></i> <span>About</span>
+        </div>
+      </div>
+    </div>
+    <!-- Menu task end -->
+
+    <!-- Add task -->
+    <div class="modal_tasks">
+      <div class="add_tasks active">
+        <form class="title_desc">
+          <input type="text" placeholder="Task name" class="task_name" />
+          <textarea
+            cols="30"
+            rows="2"
+            class="description"
+            placeholder="Description"
+          ></textarea>
+          <div class="line"></div>
+          <div class="box_add">
+            <button class="cancel btns">Cancel</button>
+            <button class="add_btn btns">Add Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Add task end -->
+
+    <header>
+      <nav class="container">
+        <div class="tab_one">
+          <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div class="home">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <div class="search">
+            <form>
+              <input type="text" placeholder="Search" />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+          </div>
+        </div>
+        <div class="tab_two">
+          <div class="add_task">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="help">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div class="notic">
+            <i class="fa-solid fa-bell"></i>
+            <div class="notic_temp">
+              <div class="notic_text">
+                <p>Notifications</p>
+                <div class="line"></div>
+              </div>
+              <div class="notic_up">
+                <div class="clear">
+                  <p>clean</p>
+                </div>
+                <div class="today_notic">
+                  <p class="title">Bugungi bajarilmagan ishlaringiz</p>
+                  <p class="desc">
+                    Получите персональную рекомендацию от Todoist
+                  </p>
+                  <div class="line"></div>
+                </div>
+                <div class="today_notic">
+                  <p class="title">Bugungi bajarilmagan ish</p>
+                  <p class="desc">
+                    Получите персональную рекомендацию от Todoist
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="or_temp">OR</div>
-          <div class="login_auth">
-            <input type="text" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Login</button>
-            <p>Don't have an account? <span>Register</span></p>
+        </div>
+      </nav>
+    </header>
+    <main class="container_temp">
+      <div class="today_item">
+        <div class="date_main">
+          <p>Today <span>Mon 1 May</span></p>
+        </div>
+        <div class="view_settings">
+          <i class="fa-solid fa-sliders"></i> <span>View</span>
+        </div>
+      </div>
+      <div class="todos">
+        
+      </div>
+      <div class="todos">
+        
+      </div>
+      <!-- <div class="todo_list">
+        <div class="line"></div>
+        <div class="todo_info">
+          <div class="info">
+            <p class="title">Добавить все личные задачи</p>
+            <p class="desc">Получите персональную рекомендацию от Todoist</p>
+            <div class="todo_date">
+              <i class="fa-regular fa-calendar-days"></i>
+              <span>14.02.2023</span>
+            </div>
+          </div>
+          <div class="todo_box">
+            <p>Inbox <i class="fa-solid fa-inbox"></i></p>
+            <div class="edit_delete">
+              <i class="fa-solid fa-pen"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
           </div>
         </div>
       </div>
-      <header>welkome header</header>
-    </div>
-
-    <!-- Script -->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-      import {
-        getAuth,
-        GoogleAuthProvider,
-        signInWithRedirect,
-        getRedirectResult,
-        signInWithPopup
-      } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyA7U3XwI-mPhcJueD9dz_A1BhsROjg7ADE",
-        authDomain: "todoweb-1ba4f.firebaseapp.com",
-        projectId: "todoweb-1ba4f",
-        storageBucket: "todoweb-1ba4f.appspot.com",
-        messagingSenderId: "1012284975252",
-        appId: "1:1012284975252:web:4d7a456bf92ddc98fa6c81",
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const provider = new GoogleAuthProvider(app);
-
-      // Auth firebase
-      const google = document.querySelector(".google");
-      const facebook = document.querySelector(".facebook");
-
-      google.addEventListener("click", (e) => {
-        e.preventDefault()
-        signInWithRedirect(auth, provider);
-
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // IdP data available using getAdditionalUserInfo(result)
-            // ...
-            alert(user.displayName)
-          })
-          .catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
-          });
-      });
-    </script>
-    <!-- <script src="/javascript/app.js"></script> -->
-
-    <!-- Script end -->
+     -->
+    </main>
   </body>
 </html>
