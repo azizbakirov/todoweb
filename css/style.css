@@ -308,7 +308,7 @@ main .today_item .view_settings span {
   transition: all .3s;
 }
 .menu_popup .menu_temp {
-  margin: 12px 0;
+  margin: 18px 0;
   margin-left: -5px;
   font-size: 14px;
   cursor: pointer;
@@ -317,6 +317,15 @@ main .today_item .view_settings span {
   display: flex;
   justify-content: space-between;
 }
+.inbox i{
+  color: #008F8C;
+}
+.todays i{
+  color: #CC8D1A;
+}
+.filter_labels i{
+  color: #FF5F5D;
+}
 .todays {
   display: flex;
   justify-content: space-between;
@@ -324,10 +333,31 @@ main .today_item .view_settings span {
 .menu_popup .menu_temp span {
   margin-left: 10px;
 }
+.version{
+  display: flex;
+  position: absolute;
+  top: 95%;
+}
+.version p{
+  color: #5c5c5c;
+}
+.version img{
+  width: 80%;
+}
+.version .github{
+  margin-left: 25px;
+}
+.version span .web{
+  width: 60%;
+}
+.version a:hover{
+    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+
 
 @media screen and (max-width: 600px) {
   .container_temp {
-    width: 90%;
+    width: 80%;
   }
   .add_tasks {
     width: 70%;
@@ -337,6 +367,21 @@ main .today_item .view_settings span {
     top: 9%;
     left: 63%;
     width: 35%;
+  }
+  .menu_popup{
+    padding-left: 20px;
+    width: 80%;
+    
+  }
+  .version{
+    /* top: 85%; */
+  }
+ .menu_popup .menu_temp{
+    font-size: 16px;
+    margin: 40px 0;
+  }
+  .menu_popup .menu_temp .fa-solid{
+    color: red;
   }
 }
 @media screen and (max-width: 450px) {

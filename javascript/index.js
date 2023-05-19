@@ -29,7 +29,6 @@ function addTodos() {
       });
       setTodos();
       showTodos();
-      console.log(todos);
     } else {
       console.log("error");
     }
@@ -40,9 +39,7 @@ document.addEventListener("keyup", (e) => {
   if (e.keyCode == 27) {
     noticTemp.classList.add("active");
     menuPopUp.classList.add("menu_popup");
-   activeTask.classList.add("active")
-
-    
+    activeTask.classList.add("active");
   }
 });
 
@@ -50,14 +47,17 @@ document.addEventListener("keyup", (e) => {
 function addCancel() {
   addTask.addEventListener("click", () => {
     activeTask.classList.toggle("active");
+    menuPopUp.classList.add("menu_active");
+    noticTemp.classList.add("active");
+
     form.reset();
   });
 
   // Key ESC cancel
-
   cancel.addEventListener("click", (e) => {
     e.preventDefault();
     activeTask.classList.toggle("active");
+
     form.reset();
   });
 }
@@ -125,8 +125,8 @@ function deleteTodo(id) {
     return i !== id;
   });
   todos = deletedTodo;
-  showTodos();
   setTodos();
+  showTodos();
 }
 
 // menu
@@ -134,18 +134,23 @@ function menuTask() {
   menu.addEventListener("click", (e) => {
     e.preventDefault();
     menuPopUp.classList.toggle("menu_active");
+    activeTask.classList.add("active");
+    noticTemp.classList.add("active");
   });
 }
 
 // Notification
 function noticTask() {
   notification.addEventListener("click", () => {
+    menuPopUp.classList.add("menu_active");
     noticTemp.classList.toggle("active");
+    activeTask.classList.add("active");
   });
 }
-noticTask();
 
 dateTitle.innerHTML = getTime();
+  showTodos();
 addTodos();
 addCancel();
 menuTask();
+noticTask();
