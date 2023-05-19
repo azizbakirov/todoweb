@@ -6,7 +6,11 @@ const activeTask = document.querySelector(".add_tasks");
 const todosCreate = document.querySelector(".todos");
 const modal = document.querySelector(".modal");
 const addTodo = document.querySelector(".add_btn");
-
+const dateTitle = document.querySelector(".date_title");
+const menu = document.querySelector(".menu");
+const menuPopUp = document.querySelector(".menu_popup");
+const notification = document.querySelector(".notic");
+const noticTemp = document.querySelector(".notic_temp");
 
 // Add todos input textarea
 function addTodos() {
@@ -32,26 +36,25 @@ function addTodos() {
   });
 }
 
+document.addEventListener("keyup", (e) => {
+  if (e.keyCode == 27) {
+    noticTemp.classList.add("active");
+    menuPopUp.classList.add("menu_popup");
+   activeTask.classList.add("active")
 
-
+    
+  }
+});
 
 // Click btn add end cancel
-function addCancel(){
+function addCancel() {
   addTask.addEventListener("click", () => {
     activeTask.classList.toggle("active");
     form.reset();
   });
 
   // Key ESC cancel
-  document.addEventListener("keyup", (e) => {
-    if (e.keyCode == 27) {
-      if (activeTask.classList.add("active")) {
-        console.log("bor");
-      } else {
-        console.log("yoq");
-      }
-    }
-  });
+
   cancel.addEventListener("click", (e) => {
     e.preventDefault();
     activeTask.classList.toggle("active");
@@ -89,13 +92,18 @@ function showTodos() {
       <div class="todo_list">
         <div class="line"></div>
         <div class="todo_info">
-          <div class="info">
-            <p class="title">${item.title}</p>
+        <div class="info">
+            <div className="check">
+              <input class="checkmark" type="checkbox"/>
+            </div>
+            <div className="item">
+              <p class="title">${item.title}</p>
             <p class="desc">${item.desc}</p>
             <div class="todo_date">
               <i class="fa-regular fa-calendar-days"></i>
               <span>${item.date}</span>
             </div>  
+            </div>
           </div>
           <div class="todo_box">
             <p>Inbox <i class="fa-solid fa-inbox"></i></p>
@@ -111,20 +119,33 @@ function showTodos() {
   });
 }
 
-
-
 // Delete todo
-function deleteTodo(id){
-  const deletedTodo = todos.filter((item, i)=>{
-    return i !== id
-  })
-  todos = deletedTodo
-  showTodos()
-  setTodos()
-
+function deleteTodo(id) {
+  const deletedTodo = todos.filter((item, i) => {
+    return i !== id;
+  });
+  todos = deletedTodo;
+  showTodos();
+  setTodos();
 }
 
+// menu
+function menuTask() {
+  menu.addEventListener("click", (e) => {
+    e.preventDefault();
+    menuPopUp.classList.toggle("menu_active");
+  });
+}
 
+// Notification
+function noticTask() {
+  notification.addEventListener("click", () => {
+    noticTemp.classList.toggle("active");
+  });
+}
+noticTask();
 
+dateTitle.innerHTML = getTime();
 addTodos();
 addCancel();
+menuTask();

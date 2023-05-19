@@ -20,36 +20,6 @@
     <title>Todo MAX</title>
   </head>
   <body>
-    <!-- Menu task -->
-    <div class="menu_popup">
-      <div class="menu_task">
-        <div class="menu_temp inbox">
-          <div class="inboxs">
-            <i class="fa-solid fa-inbox"></i> <span>Inbox</span>
-          </div>
-        </div>
-        <div class="menu_temp todays">
-          <div class="today">
-            <i class="fa-solid fa-calendar-week"></i> <span>Today</span>
-          </div>
-        </div>
-        <div class="menu_temp filter_labels">
-          <i class="fa-solid fa-filter"></i> <span>Filter & labels</span>
-        </div>
-        <div class="line"></div>
-        <div class="menu_temp settigs">
-          <i class="fa-solid fa-gear"></i> <span>Settings</span>
-        </div>
-        <div class="menu_temp theme">
-          <i class="fa-solid fa-palette"></i> <span>Theme</span>
-        </div>
-        <div class="menu_temp about">
-          <i class="fa-solid fa-info"></i> <span>About</span>
-        </div>
-      </div>
-    </div>
-    <!-- Menu task end -->
-
     <!-- Add task -->
     <div class="modal_tasks">
       <div class="add_tasks active">
@@ -96,7 +66,7 @@
           </div>
           <div class="notic">
             <i class="fa-solid fa-bell"></i>
-            <div class="notic_temp">
+            <div class="notic_temp active">
               <div class="notic_text">
                 <p>Notifications</p>
                 <div class="line"></div>
@@ -123,22 +93,47 @@
           </div>
         </div>
       </nav>
+      <!-- Menu task -->
+      <div class="menu_popup menu_active">
+        <div class="menu_task">
+          <div class="menu_temp inbox">
+            <div class="inboxs">
+              <i class="fa-solid fa-inbox"></i> <span>Inbox</span>
+            </div>
+          </div>
+          <div class="menu_temp todays">
+            <div class="today">
+              <i class="fa-solid fa-calendar-week"></i> <span>Today</span>
+            </div>
+          </div>
+          <div class="menu_temp filter_labels">
+            <i class="fa-solid fa-filter"></i> <span>Filter & labels</span>
+          </div>
+          <div class="line"></div>
+          <div class="menu_temp settigs">
+            <i class="fa-solid fa-gear"></i> <span>Settings</span>
+          </div>
+          <div class="menu_temp theme">
+            <i class="fa-solid fa-palette"></i> <span>Theme</span>
+          </div>
+          <div class="menu_temp about">
+            <i class="fa-solid fa-info"></i> <span>About</span>
+          </div>
+        </div>
+      </div>
+      <!-- Menu task end -->
     </header>
     <main class="container_temp">
       <div class="today_item">
         <div class="date_main">
-          <p>Today <span>Mon 1 May</span></p>
+          <p>Today <span class="date_title"></span></p>
         </div>
         <div class="view_settings">
           <i class="fa-solid fa-sliders"></i> <span>View</span>
         </div>
       </div>
-      <div class="todos">
-        
-      </div>
-      <div class="todos">
-        
-      </div>
+      <div class="todos"></div>
+      <div class="todos"></div>
       <!-- <div class="todo_list">
         <div class="line"></div>
         <div class="todo_info">
