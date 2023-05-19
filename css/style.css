@@ -183,9 +183,10 @@ main .today_item .view_settings span {
 /* Add task */
 .active {
   display: none;
-  transition: all 0.5s;
 }
-
+.active_edit{
+  display: none;
+}
 .add_tasks {
   transform: translateX(0%);
   transition: all 0.5s;

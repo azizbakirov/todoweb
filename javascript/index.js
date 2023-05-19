@@ -3,37 +3,59 @@ const todo = document.querySelector(".todos");
 const cancel = document.querySelector(".cancel");
 const addTask = document.querySelector(".add_task");
 const activeTask = document.querySelector(".add_tasks");
+const editTask = document.querySelector("#edit");
 const todosCreate = document.querySelector(".todos");
 const modal = document.querySelector(".modal");
 const addTodo = document.querySelector(".add_btn");
+const editTodo = document.querySelector("#edits");
 const dateTitle = document.querySelector(".date_title");
 const menu = document.querySelector(".menu");
 const menuPopUp = document.querySelector(".menu_popup");
 const notification = document.querySelector(".notic");
 const noticTemp = document.querySelector(".notic_temp");
+const cancelEdit = document.querySelector("#cancel");
 
+let ediItemId;
 // Add todos input textarea
-function addTodos() {
-  addTodo.addEventListener("click", (e) => {
-    e.preventDefault();
-    activeTask.classList.toggle("active");
-    let title = document.querySelector(".task_name").value;
-    let desc = document.querySelector("textarea").value;
+addTodo.addEventListener("click", (e) => {
+  e.preventDefault();
+  activeTask.classList.toggle("active");
+  let title = document.querySelector(".task_name").value;
+  let desc = document.querySelector("textarea").value;
 
-    if (title.length && desc.length) {
-      todos.push({
-        title: title,
-        desc: desc,
-        date: getTime(),
-        completed: false,
-      });
-      setTodos();
-      showTodos();
-    } else {
-      console.log("error");
-    }
-  });
-}
+  if (title.length && desc.length) {
+    todos.push({
+      title: title,
+      desc: desc,
+      date: getTime(),
+      completed: false,
+    });
+    setTodos();
+    showTodos();
+  } else {
+    console.log("error");
+  }
+});
+
+// Edit todos input
+editTodo.addEventListener("click", (e) => {
+  e.preventDefault();
+  editTask.classList.toggle("active_edit");
+  let title = document.querySelector("#task_edit").value;
+  let desc = document.querySelector("#description_edit").value;
+  if (title.length && desc.length) {
+    todos.splice(ediItemId, 1, {
+      title: title,
+      desc: desc,
+      date: getTime(),
+      completed: false,
+    });
+    setTodos();
+    showTodos();
+  } else {
+    console.log("error");
+  }
+});
 
 document.addEventListener("keyup", (e) => {
   if (e.keyCode == 27) {
@@ -44,23 +66,25 @@ document.addEventListener("keyup", (e) => {
 });
 
 // Click btn add end cancel
-function addCancel() {
-  addTask.addEventListener("click", () => {
-    activeTask.classList.toggle("active");
-    menuPopUp.classList.add("menu_active");
-    noticTemp.classList.add("active");
+addTask.addEventListener("click", () => {
+  activeTask.classList.toggle("active");
+  menuPopUp.classList.add("menu_active");
+  noticTemp.classList.add("active");
 
-    form.reset();
-  });
+  form.reset();
+});
 
-  // Key ESC cancel
-  cancel.addEventListener("click", (e) => {
-    e.preventDefault();
-    activeTask.classList.toggle("active");
-
-    form.reset();
-  });
-}
+// Key ESC cancel
+cancelEdit.addEventListener("click", (e) => {
+  e.preventDefault();
+  editTask.classList.toggle("active_edit");
+  form.reset();
+});
+cancel.addEventListener("click", (e) => {
+  e.preventDefault();
+  activeTask.classList.toggle("active");
+  form.reset();
+});
 
 // local
 let todos = JSON.parse(localStorage.getItem("todos"))
@@ -108,7 +132,7 @@ function showTodos() {
           <div class="todo_box">
             <p>Inbox <i class="fa-solid fa-inbox"></i></p>
             <div class="edit_delete">
-              <i class="fa-solid fa-pen" onclick=(edit())></i>
+              <i class="fa-solid fa-pen" onclick=(edit(${i}))></i>
               <i class="fa-solid fa-trash" onclick=(deleteTodo(${i}))></i>
               <i class="fa-solid fa-ellipsis"></i>
             </div>
@@ -127,6 +151,18 @@ function deleteTodo(id) {
   todos = deletedTodo;
   setTodos();
   showTodos();
+}
+
+// Edit todo
+function edit(id) {
+  console.log(id);
+  ediItemId = id;
+  editOpen(id);
+}
+
+// edit Open
+function editOpen() {
+  editTask.classList.toggle("active_edit");
 }
 
 // menu
@@ -149,8 +185,6 @@ function noticTask() {
 }
 
 dateTitle.innerHTML = getTime();
-  showTodos();
-addTodos();
-addCancel();
+showTodos();
 menuTask();
 noticTask();
