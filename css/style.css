@@ -354,6 +354,13 @@ main .today_item .view_settings span {
 .version a:hover{
     filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
 }
+.none{
+  display: flex;
+  justify-content: center;
+}
+.none img{
+  width: 70%;
+}
 
 
 @media screen and (max-width: 600px) {
@@ -381,8 +388,8 @@ main .today_item .view_settings span {
     font-size: 16px;
     margin: 40px 0;
   }
-  .menu_popup .menu_temp .fa-solid{
-    color: red;
+  .none{
+    margin-top: 50%;
   }
 }
 @media screen and (max-width: 450px) {

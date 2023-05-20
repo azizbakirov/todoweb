@@ -14,6 +14,7 @@ const menuPopUp = document.querySelector(".menu_popup");
 const notification = document.querySelector(".notic");
 const noticTemp = document.querySelector(".notic_temp");
 const cancelEdit = document.querySelector("#cancel");
+const loads = document.querySelector('.loads')
 
 let ediItemId;
 // Add todos input textarea
@@ -43,18 +44,15 @@ editTodo.addEventListener("click", (e) => {
   editTask.classList.toggle("active_edit");
   let title = document.querySelector("#task_edit").value;
   let desc = document.querySelector("#description_edit").value;
-  if (title.length && desc.length) {
-    todos.splice(ediItemId, 1, {
-      title: title,
-      desc: desc,
-      date: getTime(),
-      completed: false,
-    });
-    setTodos();
-    showTodos();
-  } else {
-    console.log("error");
-  }
+
+  todos.splice(ediItemId, 1, {
+    title: title,
+    desc: desc,
+    date: getTime(),
+    completed: false,
+  });
+  setTodos();
+  showTodos();
 });
 
 document.addEventListener("keyup", (e) => {
@@ -141,6 +139,12 @@ function showTodos() {
       </div>
     `;
   });
+  if(todos.length){
+    console.log('bor');
+    loads.style.display = "none"
+  } else{
+    loads.style.display = "block";
+  }
 }
 
 // Delete todo
