@@ -368,7 +368,7 @@ main .today_item .view_settings span {
 
 @media screen and (max-width: 600px) {
   .container{
-    width: 85%`;
+    width: 85%;
   }
   .container_temp {
     width: 80%;
