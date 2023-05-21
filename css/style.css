@@ -22,7 +22,7 @@ header {
   z-index: 999;
 }
 .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   z-index: 1;
 }
@@ -367,6 +367,9 @@ main .today_item .view_settings span {
 
 
 @media screen and (max-width: 600px) {
+  .container{
+    width: 85%`;
+  }
   .container_temp {
     width: 80%;
   }
