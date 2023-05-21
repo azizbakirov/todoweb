@@ -22,7 +22,7 @@ header {
   z-index: 999;
 }
 .container {
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   z-index: 1;
 }
@@ -379,7 +379,9 @@ main .today_item .view_settings span {
   .menu_popup{
     padding-left: 20px;
     width: 80%;
-    
+  }
+  .menu, .home, .add_task, .notic i{
+    font-size: 25px;
   }
   .version{
     /* top: 85%; */
@@ -390,6 +392,16 @@ main .today_item .view_settings span {
   }
   .none{
     margin-top: 50%;
+  }
+  .none img{
+    width: 100%;
+  }
+  .help{
+
+    display: none;
+  }
+  .search input{
+    width: 219px;
   }
 }
 @media screen and (max-width: 450px) {
