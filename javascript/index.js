@@ -191,6 +191,6 @@ function noticTask() {
 }
 
 dateTitle.innerHTML = getTime();
-showTodos();
+// showTodos();
 menuTask();
 noticTask();
