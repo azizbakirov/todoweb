@@ -184,6 +184,9 @@ main .today_item .view_settings span {
 .active {
   display: none;
 }
+.menu_hidden{
+  overflow: hidden;
+}
 .active_edit{
   display: none;
 }
@@ -305,8 +308,8 @@ main .today_item .view_settings span {
   padding-top: 70px;
   background-color: #282828;
   overflow: hidden;
-  /* transform: translate(0%); */
   transition: all .3s;
+  overflow: hidden;
 }
 .menu_popup .menu_temp {
   margin: 18px 0;

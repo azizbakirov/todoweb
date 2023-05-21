@@ -15,6 +15,7 @@ const notification = document.querySelector(".notic");
 const noticTemp = document.querySelector(".notic_temp");
 const cancelEdit = document.querySelector("#cancel");
 const loads = document.querySelector('.loads')
+const body = document.querySelector('body')
 
 let ediItemId;
 // Add todos input textarea
@@ -176,6 +177,7 @@ function menuTask() {
     menuPopUp.classList.toggle("menu_active");
     activeTask.classList.add("active");
     noticTemp.classList.add("active");
+    body.classList.toggle('menu_hidden')
   });
 }
 
