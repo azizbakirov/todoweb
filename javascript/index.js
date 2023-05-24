@@ -14,10 +14,13 @@ const menuPopUp = document.querySelector(".menu_popup");
 const notification = document.querySelector(".notic");
 const noticTemp = document.querySelector(".notic_temp");
 const cancelEdit = document.querySelector("#cancel");
-const loads = document.querySelector('.loads')
-const body = document.querySelector('body')
+const loads = document.querySelector(".loads");
+const body = document.querySelector("body");
+let title = document.querySelector("#task_edit");
+let desc = document.querySelector("#description_edit");
 
 let ediItemId;
+
 // Add todos input textarea
 addTodo.addEventListener("click", (e) => {
   e.preventDefault();
@@ -52,6 +55,7 @@ editTodo.addEventListener("click", (e) => {
     date: getTime(),
     completed: false,
   });
+
   setTodos();
   showTodos();
 });
@@ -61,6 +65,8 @@ document.addEventListener("keyup", (e) => {
     noticTemp.classList.add("active");
     menuPopUp.classList.add("menu_popup");
     activeTask.classList.add("active");
+    menuPopUp.classList.add("menu_active");
+    noticTemp.classList.add("active");
   }
 });
 
@@ -109,6 +115,7 @@ getTime();
 // Show todos
 function showTodos() {
   let todos = JSON.parse(localStorage.getItem("todos"));
+  console.log(todos);
   todo.innerHTML = "";
   todos.forEach((item, i) => {
     todo.innerHTML += `
@@ -140,10 +147,10 @@ function showTodos() {
       </div>
     `;
   });
-  if(todos.length){
-    console.log('bor');
-    loads.style.display = "none"
-  } else{
+  if (todos.length) {
+    console.log("bor");
+    loads.style.display = "none";
+  } else {
     loads.style.display = "block";
   }
 }
@@ -163,6 +170,8 @@ function edit(id) {
   console.log(id);
   ediItemId = id;
   editOpen(id);
+  title.value = todos[id].title;
+  desc.value = todos[id].desc;
 }
 
 // edit Open
@@ -177,7 +186,7 @@ function menuTask() {
     menuPopUp.classList.toggle("menu_active");
     activeTask.classList.add("active");
     noticTemp.classList.add("active");
-    body.classList.toggle('menu_hidden')
+    body.classList.toggle("menu_hidden");
   });
 }
 
