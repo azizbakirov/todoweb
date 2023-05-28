@@ -565,7 +565,9 @@ input[type="checkbox"]:checked:before {
 .close_all{
   display: none;
 }
-
+.back{
+  display: none;
+}
 /* Category theme */
 
 /* Menu task end*/
@@ -663,6 +665,7 @@ input[type="checkbox"]:checked:before {
     margin-top: 8px;
   }
   .back {
+    display: block;
      -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     padding: 10px 12px;
