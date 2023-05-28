@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#008F8C">
+    <meta name="theme-color" content="#008F8C" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <script src="/javascript/index.js" defer></script>
@@ -41,9 +41,14 @@
       </div>
       <div id="edit" class="add_tasks active_edit">
         <form class="title_desc">
-          <input id="task_edit" type="text" placeholder="Task" class="task_name" />
+          <input
+            id="task_edit"
+            type="text"
+            placeholder="Task"
+            class="task_name"
+          />
           <textarea
-          id="description_edit"
+            id="description_edit"
             cols="30"
             rows="2"
             class="description"
@@ -59,16 +64,82 @@
     </div>
     <!-- Add task end -->
 
+    <!-- Menu task -->
+
+    <!-- settings task -->
+    <div class="menu_settings active">
+      <div class="settings">
+        <div class="settings_temp">
+          <div class="catergories">
+            <p class="text_settings">Settings</p>
+            <div class="category_temp">
+              <div class="category active_category accounts">
+                <p class="menu_item ">
+                  <i class="fa-solid fa-user"></i>Account
+                </p>
+              </div>
+
+              <div class="category general">
+                <p class="menu_item ">
+                  <i class="fa-solid fa-gear"></i>General
+                </p>
+              </div>
+
+              <div class="category advanced">
+                <p class="menu_item ">
+                  <i class="fa-solid fa-sliders"></i>Advanced
+                </p>
+              </div>
+
+              <div class="category theme">
+                <p class="menu_item ">
+                  <i class="fa-solid fa-brush"></i>Theme
+                </p>
+              </div>
+
+              <div class="category notification">
+                <p class="menu_item ">
+                  <i class="fa-solid fa-bell"></i>Notification
+                </p>
+              </div>
+            </div>
+            <div class="close_all">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div class="resurce">
+            <div class="title_close">
+              <div class="back">
+                  <i class="fa-solid fa-arrow-left"></i>
+              </div>
+              <div class="titles">
+                <p class="text_category"></p>
+              </div>
+              <div class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="add_resurce"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- settings task end-->
+
+    <!-- Menu task end -->
+
     <header>
       <nav class="container">
         <div class="tab_one">
-          <div class="menu">
+          <div title="Menu" class="menu">
             <i class="fa-solid fa-bars"></i>
           </div>
-          <div class="home">
+          <div title="Home" class="home">
             <i class="fa-solid fa-house"></i>
           </div>
-          <div class="search">
+          <div title="Search" class="search">
             <form>
               <input type="text" placeholder="Search" />
               <i class="fa-solid fa-magnifying-glass"></i>
@@ -76,13 +147,13 @@
           </div>
         </div>
         <div class="tab_two">
-          <div class="add_task">
+          <div title="Task Add" class="add_task">
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="help">
             <i class="fa-solid fa-circle-exclamation"></i>
           </div>
-          <div class="notic">
+          <div title="Notifications" class="notic">
             <i class="fa-solid fa-bell"></i>
             <div class="notic_temp active">
               <div class="notic_text">
@@ -112,7 +183,7 @@
         </div>
       </nav>
       <!-- Menu task -->
-      <div class="menu_popup menu_active">
+      <div  class="menu_popup menu_active">
         <div class="menu_task">
           <div class="menu_temp inbox">
             <div class="inboxs">
@@ -128,19 +199,19 @@
             <i class="fa-solid fa-filter"></i> <span>Filter & labels</span>
           </div>
           <div class="line"></div>
-          <div class="menu_temp settigs">
+          <div class="menu_temp settigs" onclick="settings()">
             <i class="fa-solid fa-gear"></i> <span>Settings</span>
-          </div>
-          <div class="menu_temp theme">
-            <i class="fa-solid fa-palette"></i> <span>Theme</span>
           </div>
           <div class="menu_temp about">
             <i class="fa-solid fa-info"></i> <span>About</span>
           </div>
           <div class="version">
             <p>V 12.123</p>
-            <a class="github" target="_blank" href="https://github.com/azizbakirov/todoweb"
-              ><img  src="/image/icon/github.png" alt=""
+            <a
+              class="github"
+              target="_blank"
+              href="https://github.com/azizbakirov/todoweb"
+              ><img src="/image/icon/github.png" alt=""
             /></a>
             <a href="https://azizbakirov.uz/" target="_blank"
               ><img class="web" src="/image/icon/website.png" alt=""
@@ -159,12 +230,11 @@
           <i class="fa-solid fa-sliders"></i> <span>View</span>
         </div>
       </div>
-      <div class="todos">
-      </div>
+      <div class="todos"></div>
       <div class="loads">
         <div class="none">
-          <img src="/image/loads.png" alt="Load img">
-      </div>
+          <img src="/image/loads.png" alt="Load img" />
+        </div>
       </div>
       <!-- <div class="todo_list">
         <div class="line"></div>

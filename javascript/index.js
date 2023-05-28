@@ -16,8 +16,8 @@ const noticTemp = document.querySelector(".notic_temp");
 const cancelEdit = document.querySelector("#cancel");
 const loads = document.querySelector(".loads");
 const body = document.querySelector("body");
-let title = document.querySelector("#task_edit");
-let desc = document.querySelector("#description_edit");
+const title = document.querySelector("#task_edit");
+const desc = document.querySelector("#description_edit");
 
 let ediItemId;
 
@@ -66,7 +66,8 @@ document.addEventListener("keyup", (e) => {
     menuPopUp.classList.add("menu_popup");
     activeTask.classList.add("active");
     menuPopUp.classList.add("menu_active");
-    noticTemp.classList.add("active");
+  menuSettings.classList.add("active");
+  noticTemp.classList.add("active");
   }
 });
 
@@ -127,8 +128,10 @@ function showTodos() {
               <input class="checkmark" type="checkbox"/>
             </div>
             <div className="item">
-              <p class="title">${item.title}</p>
-            <p class="desc">${item.desc}</p>
+              <div className="sub_title">
+                <p class="title">${item.title}</p>
+                 <p class="desc">${item.desc}</p>
+              </div>
             <div class="todo_date">
               <i class="fa-regular fa-calendar-days"></i>
               <span>${item.date}</span>
@@ -198,6 +201,103 @@ function noticTask() {
     activeTask.classList.add("active");
   });
 }
+
+// Menu settings
+const menuSettings = document.querySelector(".menu_settings");
+const categoryBtns = document.querySelectorAll(".category");
+const textSettings = document.querySelector(".text_category");
+const addResurce = document.querySelector(".add_resurce");
+const resurce = document.querySelector('.resurce')
+
+categoryBtns.forEach((btns) => {
+  if (btns.classList.contains("active_category")) {
+    textSettings.innerText = "Account";
+    addResurce.innerHTML = "acount";
+  }
+  btns.addEventListener("click", (e) => {
+    categoryBtns.forEach((btn) => btn.classList.remove("active_category"));
+    btns.classList.add("active_category");
+    console.log(btns);
+    if (btns.classList.contains("accounts")) {
+      textSettings.innerText = "Account";
+      addResurce.innerHTML = "acount";
+      resurce.style.display = 'block'
+    } else if (btns.classList.contains("general")) {
+      textSettings.innerText = "General";
+      addResurce.innerHTML = "general";
+      resurce.style.display = "block";
+    } else if (btns.classList.contains("advanced")) {
+      textSettings.innerText = "Advanced";
+      addResurce.innerHTML = "advanced";
+      resurce.style.display = "block";
+
+    } else if (btns.classList.contains("theme")) {
+      textSettings.innerText = "Theme";
+      addResurce.innerHTML = `
+         <span
+              >Personalize your Todoist with colors to match your style, mood,
+              and personality. Learn more.</span
+            >
+            <p class="theme_title">Your themes</p>
+            <div class="themes">
+             
+              <div class="theme_item light">
+                <p>Light</p>
+                <div class="bg_item light_bg">
+                  <div class="light"></div>
+                  <div class="light"></div>
+                  <div class="light"></div>
+                </div>
+              </div>
+              <div class="theme_item dark">
+                <p>Dark</p>
+                <div class="bg_item darc_bg">
+                  <div class="darc"></div>
+                  <div class="darc"></div>
+                  <div class="darc"></div>
+                </div>
+              </div>
+              <div class="theme_item pink">
+                <p>Pink</p>
+                <div class="bg_item pink_bg">
+                  <div class="pink"></div>
+                  <div class="pink"></div>
+                  <div class="pink"></div>
+                </div>
+              </div>
+      `;
+      resurce.style.display = "block";
+      
+    } else if (btns.classList.contains("notification")) {
+      textSettings.innerText = "Notification";
+      addResurce.innerHTML = "notic";
+      resurce.style.display = "block";
+
+    }
+  });
+});
+function settings(e) {
+  menuSettings.classList.toggle("active");
+  menuPopUp.classList.add("menu_active");
+}
+
+// Close btn
+const closeBtn = document.querySelector(".close");
+const backBtn = document.querySelector(".back");
+const closeAll = document.querySelector(".close_all");
+closeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  menuSettings.classList.toggle("active");
+});
+backBtn.addEventListener('click', (e)=>{
+  e.preventDefault()
+  resurce.style.display = 'none'
+})
+closeAll.addEventListener("click", (e) => {
+  e.preventDefault();
+    menuSettings.classList.toggle("active");
+
+});
 
 dateTitle.innerHTML = getTime();
 // showTodos();
