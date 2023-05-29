@@ -284,7 +284,7 @@ function settings(e) {
 // Close btn
 const closeBtn = document.querySelector(".close");
 const backBtn = document.querySelector(".back");
-const closeAll = document.querySelector(".close_all");
+const closeMenu = document.querySelector(".back_temp");
 closeBtn.addEventListener("click", (e) => {
   e.preventDefault();
   menuSettings.classList.toggle("active");
@@ -293,11 +293,12 @@ backBtn.addEventListener('click', (e)=>{
   e.preventDefault()
   resurce.style.display = 'none'
 })
-closeAll.addEventListener("click", (e) => {
-  e.preventDefault();
-    menuSettings.classList.toggle("active");
+closeMenu.addEventListener('click', (e)=>{
+  e.preventDefault()
+    menuSettings.classList.add("active");
 
-});
+})
+
 
 dateTitle.innerHTML = getTime();
 // showTodos();
