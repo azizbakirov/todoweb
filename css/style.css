@@ -575,6 +575,23 @@ input[type="checkbox"]:checked:before {
 
 /* Menu task end*/
 
+
+/* themes */
+/* light */
+.light{
+  background-color: #F2F2F2;
+  /* background-color: #545861; */
+  /* background-color: #707480; */
+  /* color: #313131; */
+  color: #595959;
+}
+.input_text::placeholder{
+  color: rgba(255, 255, 255, 0.411);
+}
+/* light */
+/* themes */
+
+
 @media screen and (max-width: 600px) {
   .container {
     width: 85%;

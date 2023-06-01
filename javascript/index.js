@@ -66,8 +66,8 @@ document.addEventListener("keyup", (e) => {
     menuPopUp.classList.add("menu_popup");
     activeTask.classList.add("active");
     menuPopUp.classList.add("menu_active");
-  menuSettings.classList.add("active");
-  noticTemp.classList.add("active");
+    menuSettings.classList.add("active");
+    noticTemp.classList.add("active");
   }
 });
 
@@ -207,7 +207,7 @@ const menuSettings = document.querySelector(".menu_settings");
 const categoryBtns = document.querySelectorAll(".category");
 const textSettings = document.querySelector(".text_category");
 const addResurce = document.querySelector(".add_resurce");
-const resurce = document.querySelector('.resurce')
+const resurce = document.querySelector(".resurce");
 
 categoryBtns.forEach((btns) => {
   if (btns.classList.contains("active_category")) {
@@ -221,7 +221,7 @@ categoryBtns.forEach((btns) => {
     if (btns.classList.contains("accounts")) {
       textSettings.innerText = "Account";
       addResurce.innerHTML = "acount";
-      resurce.style.display = 'block'
+      resurce.style.display = "block";
     } else if (btns.classList.contains("general")) {
       textSettings.innerText = "General";
       addResurce.innerHTML = "general";
@@ -230,7 +230,6 @@ categoryBtns.forEach((btns) => {
       textSettings.innerText = "Advanced";
       addResurce.innerHTML = "advanced";
       resurce.style.display = "block";
-
     } else if (btns.classList.contains("theme")) {
       textSettings.innerText = "Theme";
       addResurce.innerHTML = `
@@ -241,7 +240,7 @@ categoryBtns.forEach((btns) => {
             <p class="theme_title">Your themes</p>
             <div class="themes">
              
-              <div class="theme_item light">
+              <div class="theme_item light" onclick=(themeClick())>
                 <p>Light</p>
                 <div class="bg_item light_bg">
                   <div class="light"></div>
@@ -267,12 +266,10 @@ categoryBtns.forEach((btns) => {
               </div>
       `;
       resurce.style.display = "block";
-      
     } else if (btns.classList.contains("notification")) {
       textSettings.innerText = "Notification";
       addResurce.innerHTML = "notic";
       resurce.style.display = "block";
-
     }
   });
 });
@@ -289,16 +286,63 @@ closeBtn.addEventListener("click", (e) => {
   e.preventDefault();
   menuSettings.classList.toggle("active");
 });
-backBtn.addEventListener('click', (e)=>{
-  e.preventDefault()
-  resurce.style.display = 'none'
-})
-closeMenu.addEventListener('click', (e)=>{
-  e.preventDefault()
-    menuSettings.classList.add("active");
+backBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  resurce.style.display = "none";
+});
+closeMenu.addEventListener("click", (e) => {
+  e.preventDefault();
+  menuSettings.classList.add("active");
+});
 
-})
+// Theme clicked
+const header = document.querySelector("header");
+const categories = document.querySelector(".catergories");
+const inputColor = document.querySelector(".search input");
+const line = document.querySelectorAll(".line");
+const add_tasks = document.querySelector(".add_tasks");
+const taskInputs = document.querySelectorAll(
+  ".add_tasks .title_desc input, .description",
+);
+const inps = document.querySelector(".add_tasks .title_desc input");
+// Light
+function themeClick() {
+  // body
+  body.classList.add("light");
+  // header
+  header.style.backgroundColor = "#777C8B";
+  // menu
+  menuPopUp.style.backgroundColor = "#777C8B";
+  resurce.style.backgroundColor = "#545861";
+  resurce.style.color = "#313131";
+  categories.style.backgroundColor = "#777C8B";
+  categories.style.color = "#313131";
 
+  // add task
+  add_tasks.style.backgroundColor = "#777C8B";
+  add_tasks.style.color = "white";
+  add_tasks.style.border = "0.5px solid #707480";
+  add_tasks.style.filter = "none";
+  taskInputs.forEach((item) => {
+    item.style.backgroundColor = "#777C8B";
+    item.style.color = "white";
+    item.classList.add("input_text");
+  });
+  // inps.classList.add("input_text");
+
+  
+
+  // Cancel btn
+  cancel.style.backgroundColor = "#F2F2F2";
+  cancel.style.color = "#313131";
+
+  // input
+  inputColor.style.backgroundColor = "#F2F2F2";
+  // line
+  line.forEach((lines) => {
+    lines.style.backgroundColor = "#F2F2F2";
+  });
+}
 
 dateTitle.innerHTML = getTime();
 // showTodos();
