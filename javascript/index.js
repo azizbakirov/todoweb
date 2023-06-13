@@ -240,7 +240,7 @@ categoryBtns.forEach((btns) => {
             <p class="theme_title">Your themes</p>
             <div class="themes">
              
-              <div class="theme_item light" onclick=(themeClick())>
+              <div class="theme_item light" onclick=(themeLight())>
                 <p>Light</p>
                 <div class="bg_item light_bg">
                   <div class="light"></div>
@@ -248,7 +248,7 @@ categoryBtns.forEach((btns) => {
                   <div class="light"></div>
                 </div>
               </div>
-              <div class="theme_item dark">
+              <div class="theme_item dark" onclick=(themeDark()>
                 <p>Dark</p>
                 <div class="bg_item darc_bg">
                   <div class="darc"></div>
@@ -306,7 +306,7 @@ const taskInputs = document.querySelectorAll(
 );
 const inps = document.querySelector(".add_tasks .title_desc input");
 // Light
-function themeClick() {
+function themeLight() {
   // body
   body.classList.add("light");
   // header
@@ -330,8 +330,6 @@ function themeClick() {
   });
   // inps.classList.add("input_text");
 
-  
-
   // Cancel btn
   cancel.style.backgroundColor = "#F2F2F2";
   cancel.style.color = "#313131";
@@ -342,6 +340,9 @@ function themeClick() {
   line.forEach((lines) => {
     lines.style.backgroundColor = "#F2F2F2";
   });
+}
+function themeDark(){
+  
 }
 
 dateTitle.innerHTML = getTime();
